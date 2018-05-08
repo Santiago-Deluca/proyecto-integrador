@@ -1,0 +1,140 @@
+html {
+ box-sizing: border-box;
+}
+
+body{
+background-color: rgba(28, 210, 101, 0.51);
+font-family: 'PT Sans', sans-serif;
+}
+
+
+/** Global **/
+.contenedor {
+  width: 98%;
+  margin: 0, auto;
+}
+
+@media only screen && (min-whidth:480px){
+   .contenedor {
+     width:95%;
+   }
+}
+
+@media only screen && (min-whidth:768px){
+   .contenedor {
+     width:90%;
+   }
+}
+
+@media only screen && (min-whidth:992px){
+   .contenedor {
+     width:90%;
+     max-widht:1100px;
+   }
+}
+
+
+h2 {
+  font-family: 'Oswald', sans-serif;
+}
+
+div.hero {
+  background-image: url(../images/foto1.jpeg);
+  height: 100vh;
+  background-position: top center;
+  background-size: cover;
+}
+div.contenido-header {
+    padding-top: 40px;
+}
+
+nav.redes-sociales {
+ text-align: center;
+}
+
+nav.redes-sociales a {
+ color : #ffffff;
+ font-size: 2.5em;
+ margin-right: 20px;
+}
+
+nav.redes-sociales a :last-child {
+  margin-right: 0;
+}
+
+div.informacion {
+ text-align: center;
+ color : #ffffff;
+}
+
+h1 {
+  font-size: 5em;
+  font-family: 'Indie Flower', cursive;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+}
+
+div.informacion p {
+ text-transform: uppercase;
+}
+
+div.barra {
+  background-color:rgba(28, 210, 101, 0.51);
+  padding : 20px, 0;
+  }
+
+div.logo {
+  width:80%;
+}
+
+div.logo img {
+  width: 100%;
+}
+
+
+@media only screen && (min-whidth:768px) {
+  div.logo {
+    width: 33%;
+    float: left;
+  }
+}
+
+/** revisar esta parte **/
+
+
+nav.navegavion-principal {
+  display :none;
+}
+
+@media only screen && (min-whidth:768px) {
+     nav.navegavion-principal {
+     width: 67%;
+     float: right;
+     text-align: right;
+     display: block;
+     padding-top: 50px;
+     margin-right: 25px;
+  }
+}
+
+nav.navegavion-principal a {
+  font-family: 'Oswald', sans-serif;
+  color : #ffffff;
+  font-size: 15em;
+  text-decoration: none;
+  list-style-type: none;
+  text-transform: uppercase;
+  margin-right: 10px;
+  line-height: 30px;
+}
+
+div.navegacion-footer {
+ height:350px;
+ background-color: rgba(28, 210, 101, 0.51);
+ border-top: 1px solid black;
+}
+
+div.navegacion-footer a {
+ font-size: 1.5em;
+}
