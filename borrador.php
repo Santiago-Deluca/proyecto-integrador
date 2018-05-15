@@ -1,8 +1,3 @@
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -18,10 +13,9 @@
   <body>
 
 
-      <header class="site-header">
+      <header>
+            <div class="barra_de_navegacion">
 
-            <div class="barra">
-              <div class="contenedor clearfix">
                 <div class="logo">
                   <img src=" " alt="logo">
                 </div>
@@ -36,8 +30,13 @@
                   <a href="login.php">Ingresar</a>
                   <a href="registro.php">Registrate</a>
                 </nav>
+              </div>
 
-            </div>
+            <nav  class="redes-sociales">
+              <a href="#"><i class="fa fa-facebook-f"></i></a>
+              <a href="#"><i class="fa fa-twitter-square"></i></a>
+              <a href="#"><i class="fa fa-instagram"></i></a>
+            </nav>
           </div>
         </header>
 

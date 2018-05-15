@@ -14,20 +14,22 @@
   <body>
 
   <footer>
-      <div class="navegacion-footer">
-        <div class="contactos">
-          <h4>Telefonos de contactos</h4>
-          <p>Fijo: 011-4701-5997</p>
-          <p>Celular: 155-4545-2222</p>
-          <h4>Mail:</h4>
-          <p>info@comamosjuntos.com.ar</p>
-        </div>
-        <nav  class="redes-sociales">
-          <a href="#"><i class="fa fa-facebook-f"></i></a>
-          <a href="#"><i class="fa fa-twitter-square"></i></a>
-          <a href="#"><i class="fa fa-instagram"></i></a>
-          <a href="#"><i class="fa fa-pinterest-square"></i></a>
-          <a href="#"><i class="fa fa-youtube"></i></a>
+    <div class="pie_de_pagina">
+        <div class="contenido">
+          <a href="#">Ayuda</a>
+          <a href="#">Informacion</a>
+          <a href="#">Privacidad</a>
+          <a href="#">Condiciones</a>
+      </div>
+      <div class="redes-sociales">
+        <a href="#"><i class="fa fa-facebook-f"></i></a>
+        <a href="#"><i class="fa fa-twitter-square"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+
+      </div>
+
+    </div>
+
        </nav>
       </div>
     </footer>
