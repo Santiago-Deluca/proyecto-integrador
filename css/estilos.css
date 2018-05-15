@@ -217,18 +217,19 @@ background-position:cover no repeat;
 
 /*css registro*/
 
+div.conteiner {
 
-
-fieldset.conteiner {
-  display: block;
-  float: left;
-  border: solid 1px  #AEB404;
-  width: 400px;
+  border: solid 1px #D8D8D8;
+  border-radius: 2%;
+  width: 350px;
   height: 500px;
+  padding: 50px;
+
+
 }
 
 .mini_conteiner {
   padding: 8px;
-  margin-left: 20px;
+
 
 }
