@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -13,11 +12,21 @@
     <?php
       include ("head.php");
     ?>
+<<<<<<< HEAD
 
     <section class="cuerpo">
       <div class="volver">
         <a href="home.php">Volver</a>
       </div>
+=======
+
+    <section class="cuerpo">
+
+      
+      <!--<div class="volver">
+        <a href="home.php">Volver</a>
+      </div>-->
+>>>>>>> 78a117a02084829e1072ffd1c99ce452072c10e3
     </section>
 
     <?php
