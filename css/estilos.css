@@ -75,8 +75,6 @@ div.informacion p {
   text-transform: uppercase;
 }
 
-
-
 div.explicacion{
   margin: 0 20px;
 }
@@ -194,6 +192,7 @@ nav.navegacion-principal a:last-child:hover {
   border:1px solid red;
   color:white;
 }
+
 @media only screen and (min-width:768px){
   nav.navegacion-principal {
     width: 67%;
@@ -217,6 +216,7 @@ div.menu-movil {
   display:block;
   margin-top:11px;
 }
+
 div.menu-movil :hover{
   cursor:pointer;
 }

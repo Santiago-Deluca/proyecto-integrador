@@ -12,45 +12,44 @@
     <?php
       include ("head.php");
     ?>
+
     <section class="cuerpo">
       <div class="panel-body">
           <h2 class="text-center">Inicia sesión</h2>
-          <button class="btn btn-block btn-facebook" ng-click="login.authenticate('facebook')">
-            <i class="fa fa-facebook"></i> Conéctate con Facebook
+          <button>
+            Conéctate con Facebook
           </button>
           <br>
-          <div class="signup-or-separator">
+          <div>
             <h6 class="text">o</h6>
             <hr>
           </div>
 
-          <form method="post" ng-submit="login.login()" name="loginForm" class="ng-pristine ng-invalid ng-invalid-required">
-            <div class="form-group has-feedback">
-              <input class="form-control input-lg ng-pristine ng-invalid ng-invalid-required ng-touched" type="text" name="email" ng-model="login.email" placeholder="Introduce tu email" required="" autofocus="">
-              <span class="fa fa-envelope form-control-feedback"></span>
+          <form method="post" name="loginForm">
+            <div>
+              <input type="text" name="email" placeholder="Introduce tu email">
+              <span></span>
             </div>
-            <div class="form-group has-feedback">
-              <input class="form-control input-lg ng-pristine ng-untouched ng-invalid ng-invalid-required" type="password" name="password" ng-model="login.password" placeholder="Y tu contraseña" required="">
-              <span class="fa fa-lock form-control-feedback"></span>
+            <div>
+              <input name="password" placeholder="Y tu contraseña">
+              <span></span>
             </div>
-            <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn-lg btn-block btn-primary" disabled="disabled">Inicia sesión</button>
+            <button type="submit" class="">Inicia sesión</button>
             <br>
-            <p class="text-center">
-              <a href="/forgot">¿Has olvidado tu contraseña?</a>
+            <p>
+              <a href="">¿Has olvidado tu contraseña?</a>
             </p>
-            <p class="text-center text-muted">
-              <small>¿Aún no estás registrado? <a href="/signup">Abre tu cuenta aquí.</a></small>
-              <!--<button class="btn btn-block btn-google-plus" ng-click="login.authenticate('google')">
-              <span class="fa fa-google-plus"></span> Sign in with Google
-              </button>-->
+            <p>
+              <small>¿Aún no estás registrado? <a href="">Abre tu cuenta aquí.</a></small>
             </p>
           </form>
         </div>
 
-        <div class="volver">
+        <!--<div class="volver">
           <a href="home.php">Volver</a>
-        </div>
+        </div>-->
       </section>
+
       <?php
           include ("footer.php");
       ?>

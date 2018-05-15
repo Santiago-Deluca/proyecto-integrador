@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -15,9 +14,11 @@
     ?>
 
     <section class="cuerpo">
-      <div class="volver">
+
+      
+      <!--<div class="volver">
         <a href="home.php">Volver</a>
-      </div>
+      </div>-->
     </section>
 
     <?php
