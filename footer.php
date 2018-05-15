@@ -16,11 +16,12 @@
           <a href="#">Informacion</a>
           <a href="#">Privacidad</a>
           <a href="#">Condiciones</a>
-      </div>
-      <div class="redes-sociales">
-        <a href="#"><i class="fa fa-facebook-f"></i></a>
-        <a href="#"><i class="fa fa-twitter-square"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+        <div class="redes-sociales">
+          <a href="#"><i class="fa fa-facebook-f"></i></a>
+          <a href="#"><i class="fa fa-twitter-square"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
       </div>
     </footer>
   </body>
