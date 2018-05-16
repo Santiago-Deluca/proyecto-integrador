@@ -16,7 +16,7 @@
 =======
 
 >>>>>>> 78a117a02084829e1072ffd1c99ce452072c10e3
-    <section class="cuerpo">    
+    <section class="cuerpo">
       <h2> Preguntas Frecuentes</h2>
       <section>
      		<div class="faq">
@@ -96,6 +96,7 @@
       </section>
     <?php
         include ("footer.php");
+        ?>
 =======
      			<ol>
      				<li>¿Donde estamos?</li>
