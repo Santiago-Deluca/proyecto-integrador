@@ -12,6 +12,7 @@
     <?php
       include ("head.php");
     ?>
+<<<<<<< HEAD
     <section class="cuerpo">
       <div class="panel-body">
           <h2 class="text-center">Inicia sesión</h2>
@@ -20,10 +21,22 @@
           </button>
           <br>
           <div class="signup-or-separator">
+=======
+
+    <section class="cuerpo">
+      <div class="panel-body">
+          <h2 class="text-center">Inicia sesión</h2>
+          <button>
+            Conéctate con Facebook
+          </button>
+          <br>
+          <div>
+>>>>>>> 78a117a02084829e1072ffd1c99ce452072c10e3
             <h6 class="text">o</h6>
             <hr>
           </div>
 
+<<<<<<< HEAD
           <form method="post" ng-submit="login.login()" name="loginForm" class="ng-pristine ng-invalid ng-invalid-required">
             <div class="form-group has-feedback">
               <input class="form-control input-lg ng-pristine ng-invalid ng-invalid-required ng-touched" type="text" name="email" ng-model="login.email" placeholder="Introduce tu email" required="" autofocus="">
@@ -46,6 +59,32 @@
             </p>
           </form>
         </div>
+=======
+          <form method="post" name="loginForm">
+            <div>
+              <input type="text" name="email" placeholder="Introduce tu email">
+              <span></span>
+            </div>
+            <div>
+              <input name="password" placeholder="Y tu contraseña">
+              <span></span>
+            </div>
+            <button type="submit" class="">Inicia sesión</button>
+            <br>
+            <p>
+              <a href="">¿Has olvidado tu contraseña?</a>
+            </p>
+            <p>
+              <small>¿Aún no estás registrado? <a href="">Abre tu cuenta aquí.</a></small>
+            </p>
+          </form>
+        </div>
+
+        <!--<div class="volver">
+          <a href="home.php">Volver</a>
+        </div>-->
+      </section>
+>>>>>>> 78a117a02084829e1072ffd1c99ce452072c10e3
 
         <div class="volver">
           <a href="home.php">Volver</a>
