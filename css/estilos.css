@@ -7,12 +7,12 @@ body {
   font-family: 'Tajawal', sans-serif;
 }
 
-section.cuerpo{
+section.cuerpo {
   margin-top: 90px;
 }
 
 /** Global **/
-.contenedor {
+.contenedor{
   width: 98%;
   margin: 0, auto;
 }
@@ -39,6 +39,9 @@ section.cuerpo{
 
 h2 {
   font-family: 'Tajawal', sans-serif;
+  text-align:center;
+  font-size:2.5em;
+
 }
 
 div.hero {
@@ -120,11 +123,27 @@ div.redes-sociales a {
   margin-right: 20px;
 }
 
+<<<<<<< HEAD
 div.faq {
   background-image:url(../images/foto2.jpeg);
   background-position:cover no repeat;
 }
 
+=======
+/*css registro*/
+fieldset.conteiner {
+  display: block;
+  float: left;
+  border: solid 1px  #AEB404;
+  width: 400px;
+  height: 500px;
+}
+
+.mini_conteiner {
+  padding: 8px;
+  margin-left: 20px;
+}
+>>>>>>> 5cd369c0ea8d956f4e499ea722d8b1aa762a6ce6
 
 
  /** HEADER **/
@@ -266,9 +285,17 @@ div.redes-sociales a {
   margin-right: 20px;
 }
 
+/*css faq*/
 div.faq {
   background-image:url(../images/foto2.jpeg);
-  background-position:cover no repeat;
+  background-position:cover;
+}
+div.faq ol li{
+font-size:1.5em;
+}
+
+div.faq ol p{
+font-size:1em;
 }
 
 /*css registro*/
