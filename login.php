@@ -12,38 +12,32 @@
     <?php
       include ("head.php");
     ?>
+
     <section class="cuerpo">
-      <div>
-        <h2>Inicia sesión</h2>
-        <button>
-          Conéctate con Facebook
-        </button>
-        </br>
-        </br>
 
-        <form method="post" name="loginForm">
-          <div>
-            <input type="text" name="email" placeholder="Introduce tu email">
-            <span></span>
-          </div>
+      <div class="conteiner">
 
-          <div>
-            <input type="password" name="password"placeholder="Y tu contraseña">
-            <span></span>
-          </div>
-          <button type="submit">Inicia sesión</button>
-          <br>
-          <p class="text-center">
-            <a href="">¿Has olvidado tu contraseña?</a>
-          </p>
-          <p>
-            <small>¿Aún no estás registrado? <a href="">Abre tu cuenta aquí.</a></small>
-          </p>
-        </form>
+        <h3 class="text_login">Ingresar:</h3>
+
+      <div class="mini_conteiner">
+        <label for="email" >Email:</label><br/>
+        <input type="text" name="email" class="espacio_de_relleno" id="email" value="" maxlength="50" placeholder="Ingrese su email" /><br/>
+        <span id="mail_error" class="error"></span>
       </div>
-    </section>
-    <?php
-      include ("footer.php");
-    ?>
-  </body>
-</html>
+      <div class="mini_conteiner">
+        <label for="password" >Contaseña*:</label><br/>
+        <input type="password" name="password" class="espacio_de_relleno" id="password"  maxlength="50" placeholder="Ingrese su contraseña" />
+        <div id="password_error" class="error"></div>
+      </div>
+    <input  type="submit" class="submit" name="Submit" value="Ingresar" />
+
+    <h4 class="text_login"><a href="">¿Has olvidado tu contraseña?</a></h4>
+    <h4 class="text_login"><small>¿Aún no estás registrado? <a href="registro.php">Registrate aqui.</a></small></h4>
+
+  </div>
+
+  </section>
+
+  <?php
+    include ("footer.php");
+  ?>
