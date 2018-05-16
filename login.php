@@ -13,6 +13,7 @@
       include ("head.php");
     ?>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <section class="cuerpo">
       <div class="panel-body">
           <h2 class="text-center">Inicia sesión</h2>
@@ -34,8 +35,40 @@
 >>>>>>> 78a117a02084829e1072ffd1c99ce452072c10e3
             <h6 class="text">o</h6>
             <hr>
+=======
+
+    <section class="cuerpo">
+      <div>
+        <h2>Inicia sesión</h2>
+        <button>
+          Conéctate con Facebook
+        </button>
+        </br>
+        </br>
+
+        <form method="post" name="loginForm">
+          <div>
+            <input type="text" name="email" placeholder="Introduce tu email">
+            <span></span>
           </div>
 
+          <div>
+            <input type="password" name="password"placeholder="Y tu contraseña">
+            <span></span>
+>>>>>>> eaa63d1c542fc0f6c42875b9993db47d99b78015
+          </div>
+          <button type="submit">Inicia sesión</button>
+          <br>
+          <p class="text-center">
+            <a href="">¿Has olvidado tu contraseña?</a>
+          </p>
+          <p>
+            <small>¿Aún no estás registrado? <a href="">Abre tu cuenta aquí.</a></small>
+          </p>
+        </form>
+      </div>
+
+<<<<<<< HEAD
 <<<<<<< HEAD
           <form method="post" ng-submit="login.login()" name="loginForm" class="ng-pristine ng-invalid ng-invalid-required">
             <div class="form-group has-feedback">
@@ -85,13 +118,15 @@
         </div>-->
       </section>
 >>>>>>> 78a117a02084829e1072ffd1c99ce452072c10e3
+=======
+      <!--<div class="volver">
+        <a href="home.php">Volver</a>
+      </div>-->
+    </section>
+>>>>>>> eaa63d1c542fc0f6c42875b9993db47d99b78015
 
-        <div class="volver">
-          <a href="home.php">Volver</a>
-        </div>
-      </section>
-      <?php
-          include ("footer.php");
-      ?>
+    <?php
+      include ("footer.php");
+    ?>
   </body>
 </html>
