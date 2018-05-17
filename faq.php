@@ -16,8 +16,8 @@
     <section class="cuerpo">
       <section>
      		<div class="faq">
-     			<h2>Preguntas frecuentes</h2>
-      			<ol>
+     			<h2 class="faq">Preguntas frecuentes</h2>
+      			<ul>
        				<li>¿Donde estamos?</li>
        				<p> Nos encontramos ubicados en el Barrio de Belgrano, entre las Av. Monroe y Av. del Libertador Cap. Fed.</p>
        				<li>¿Hasta donde llegamos con el Delivery?</li>
@@ -28,7 +28,7 @@
        				<p>Por la excelente relacion precio y calidad con una entrega rápida </p>
        				<li>¿Por qué registrarme?</li>
        				<p>Para que disfrutes de todos nuestras promociones especiales, cupones de descuentos, obsequios y mucho más</p>
-       			</ol>
+       			</ul>
           </div>
        	</section>
 

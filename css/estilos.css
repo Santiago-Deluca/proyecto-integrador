@@ -124,25 +124,6 @@ div.redes-sociales a {
 }
 
 <<<<<<< HEAD
-div.faq {
-  background-image:url(../images/foto2.jpeg);
-  background-position:cover no repeat;
-}
-
-=======
-/*css registro*/
-fieldset.conteiner {
-  display: block;
-  float: left;
-  border: solid 1px  #AEB404;
-  width: 400px;
-  height: 500px;
-}
-
-.mini_conteiner {
-  padding: 8px;
-  margin-left: 20px;
-}
 >>>>>>> 5cd369c0ea8d956f4e499ea722d8b1aa762a6ce6
 
 
@@ -288,15 +269,15 @@ div.redes-sociales a {
 /*css faq*/
 div.faq {
   background-image:url(../images/foto2.jpeg);
-  background-position:cover;
-}
-div.faq ol li{
-font-size:1.5em;
+  margin-bottom: -11px;
 }
 
-div.faq ol p{
-font-size:1em;
+h2.faq{
+  font-size: 2.3em;
+  padding-left: 30px;
+  text-align:left;
 }
+
 
 /*css registro*/
 
@@ -316,7 +297,7 @@ div.mini_conteiner{
 input.espacio_de_relleno{
   background-color: white;
   border: none;
-  padding-bottom: 10px;
+  padding: 10px;
   width: 250px;
 }
 
@@ -353,5 +334,22 @@ section.imagenes_decoracion_login{
    position: absolute;
    top: 35%;
    left: 50%;
+  }
+}
+/*responsive de login y registro*/
+@media only screen and (min-width:768px){
+   section.imagenes_decoracion_registro{
+    display:block;
+  }
+  section.imagenes_decoracion_login{
+    display:block;
+  }
+}
+@media only screen and (max-width:768px){
+  section.imagenes_decoracion_registro{
+    display:none;
+  }
+  section.imagenes_decoracion_login{
+    display: none;
   }
 }
