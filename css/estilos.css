@@ -43,7 +43,7 @@ h2.faq{
 div.panel{
   border: 1px solid #BDBDBD;
   border-radius: 2%;
-  padding: 50px;
+  padding: 30px;
   width: 270px;  
   min-width:270px;
 }  
@@ -57,7 +57,7 @@ div.panelbig{
 div.panelb80{
   display: none;
 }
-@media only screen and (min-width:1320px){
+@media only screen and (min-width:1280px){
   div.panelb80{
     display: block;
     border: 1px solid #BDBDBD;
@@ -97,11 +97,11 @@ img.imagenes{
 
 
 img.imagenes_exp{ /* Imagenes del home */
-  width: 300px;
+  width: 280px;
   padding: 10px;
 }
 img.imagenesbanner{
-  height:600px;
+  height:580px;
   border-radius: 2%;
 
 }
