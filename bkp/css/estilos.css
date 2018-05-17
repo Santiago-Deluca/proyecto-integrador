@@ -14,13 +14,45 @@ section.cuerpo {
   margin-top: 90px;
 }
 
-div.container{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;  
-  padding-top: 10px;
-  flex-wrap: wrap;
+
+div.hero {
+  background-image: url(../images/imagen1.jpg);
+  height: 90vh;
+  background-position: top center;
+  background-size: cover;
 }
+
+div.informacion {
+  text-align: center;
+  color : #000000;
+  background-color: rgba(255,255,255,0.3);
+  margin: 0 10% 0 10%;
+    vertical-align: middle;
+}
+div.informacion p {
+  /*text-transform: uppercase;*/
+  font-size: 1.5em;  
+}
+div.informacion2 {
+
+}
+
+
+h1.nombre-sitio {
+  font-size: 3.5em;
+  font-family:'Tajawal', sans-serif;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+@media only screen and (min-width:768px){
+  h1 {
+    font-size:5em;
+  }
+}
+
+
 
 
 div.explicacion{
@@ -28,6 +60,7 @@ div.explicacion{
 }
 
 
+/*css faq*/
 div.faq {
   background-image:url(../images/foto2.jpeg);
   margin-bottom: -11px;
@@ -39,32 +72,26 @@ h2.faq{
   text-align:left;
 }
 
-
-div.panel{
+/*css registro*/
+div.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;  
+  padding-top: 10px;
+}
+div.login_page{
   border: 1px solid #BDBDBD;
   border-radius: 2%;
   padding: 50px;
   width: 270px;  
-  min-width:270px;
 }  
-div.panelbig{
+
+div.register_page{
   border: 1px solid #BDBDBD;
   border-radius: 2%;
   padding: 50px;
-  width: 80%;  
-
+  width: 270px;  
 }  
-div.panelb80{
-  display: none;
-}
-@media only screen and (min-width:1320px){
-  div.panelb80{
-    display: block;
-    border: 1px solid #BDBDBD;
-    border-radius: 2%;
-  }
-}
-
 
 div.mini_container{
   padding: 10px;
@@ -92,20 +119,8 @@ input.submit{
 img.imagenes{
   width: 500px;
   border: 2px solid #BDBDBD;
-  border-radius: 2%;
+  border-radius: 2%;;
 }
-
-
-img.imagenes_exp{ /* Imagenes del home */
-  width: 300px;
-  padding: 10px;
-}
-img.imagenesbanner{
-  height:600px;
-  border-radius: 2%;
-
-}
-
 div.imagenes_decoracion_registro{
   display: none;
 }
@@ -145,19 +160,19 @@ header div.cabecera-de-pagina {
 }
 
 header div.logo {
+  width:80%;
   float: left;
-  margin-left:20px;
 }
 
 header  div.logo img {
-  height:50px;
+  width: 100%;
 }
 
-/*@media only screen and (min-width:768px){
+@media only screen and (min-width:768px){
   header div.logo {
     width: 33%;
   }
-}*/
+}
 
 header nav.navegacion-principal {
   display :none;
@@ -190,12 +205,12 @@ header nav.navegacion-principal a:last-child:hover {
 
 @media only screen and (min-width:480px){
   header nav.navegacion-principal {
-    width: 65%;
+    width: 75%;
     float: right;
     text-align: right;
     display: block;
     padding-top: 0px;
-    margin-right: 20px;
+    margin-right: 5px;
   }
   header nav.navegacion-principal a {
     margin-right:5px;
@@ -214,7 +229,7 @@ header nav.navegacion-principal a:last-child:hover {
   }
   header nav.navegacion-principal a {
     margin-right:10px;
-    padding:10px, 5px;
+    padding:10px, 20px;
     display: inline-block;
   }
 }

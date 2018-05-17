@@ -14,36 +14,37 @@
     ?>
 
     <section class="cuerpo">
-
-      <div class="conteiner">
-
-        <h3 class="text_login">Ingresar:</h3>
-
-      <div class="mini_conteiner">
-        <label for="email" >Email:</label><br/>
-        <input type="text" name="email" class="espacio_de_relleno" id="email" value="" maxlength="50" placeholder="Ingrese su email" /><br/>
-        <span id="mail_error" class="error"></span>
+      <div class="container">
+        <div class="panel">
+          <h3 class="text_login">Ingresar:</h3>
+          <div class="mini_container">
+            <label for="email" >Email:</label><br/>
+            <input type="text" name="email" class="espacio_de_relleno" id="email" value="" maxlength="50" placeholder="Ingrese su email" /><br/>
+            <span id="mail_error" class="error"></span>
+          </div>
+          <div class="mini_container">
+            <label for="password" >Contaseña*:</label><br/>
+            <input type="password" name="password" class="espacio_de_relleno" id="password"  maxlength="50" placeholder="Ingrese su contraseña" />
+            <div id="password_error" class="error"></div>
+          </div>
+          <input  type="submit" class="submit" name="Submit" value="Ingresar" />
+          <h4 class="text_login">
+            <a href="">¿Has olvidado tu contraseña?</a>
+          </h4>
+          <h4 class="text_login">
+            <small>¿Aún no estás registrado? 
+              <a href="registro.php">Registrate aqui.</a>
+            </small>
+          </h4>
+        </div>
+        <div class="imagenes_decoracion_login">
+          <p>"La comida es mucho mejor cuando se comparte"</p>
+          <img class="imagenes"src="images/personas_comiendo.jpg" alt="foto_personas">
+        </div>
       </div>
-      <div class="mini_conteiner">
-        <label for="password" >Contaseña*:</label><br/>
-        <input type="password" name="password" class="espacio_de_relleno" id="password"  maxlength="50" placeholder="Ingrese su contraseña" />
-        <div id="password_error" class="error"></div>
-      </div>
-    <input  type="submit" class="submit" name="Submit" value="Ingresar" />
-
-    <h4 class="text_login"><a href="">¿Has olvidado tu contraseña?</a></h4>
-    <h4 class="text_login"><small>¿Aún no estás registrado? <a href="registro.php">Registrate aqui.</a></small></h4>
-
-  </div>
-
-  </section>
-
-  <section class="imagenes_decoracion_login">
-    <p>"La comida es mucho mejor cuando se comparte"</p>
-    <img class="imagenes"src="images/personas_comiendo.jpg" alt="foto_personas">
-
-  </section>
-
-  <?php
-    include ("footer.php");
-  ?>
+    </section>
+    <?php
+      include ("footer.php");
+    ?>
+  </body>
+</html>

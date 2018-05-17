@@ -15,65 +15,62 @@
 
     <section class="cuerpo">
       <form id="register" action="" method="post">
-        <div class="conteiner">
-          <div class="mini_conteiner">
-            <label for="name" >Nombre completo: </label>  <br/>
-            <input type="text" name="name" class="espacio_de_relleno" id="name" value=""  maxlength="50" /><br/>
-            <span class="error"></span>
+        <div class="container">
+          <div class="panel">
+            <h3 class="text_login">Registrarse:</h3>            
+            <div class="mini_container">
+              <label for="name" >Nombre completo: </label>  <br/>
+              <input type="text" name="name" class="espacio_de_relleno" id="name" value=""  maxlength="50" /><br/>
+              <span class="error"></span>
+            </div>
+
+            <div class="mini_container">
+              <label for="email" >Email:</label><br/>
+              <input type="text" name="email" class="espacio_de_relleno" id="email" value="" maxlength="50" placeholder="Ingrese su email" /><br/>
+              <span id="mail_error" class="error"></span>
+            </div>
+
+            <div class="mini_container">
+              <label for="username" >Nombre de usuario*:</label><br/>
+              <input type="text" name="username" class="espacio_de_relleno" id="username" value="" maxlength="50" /><br/>
+              <span id="username_error" class="error"></span>
+            </div>
+
+            <div class="mini_container">
+              <label for="password" >Contaseña*:</label><br/>
+              <input type="password" name="password" class="espacio_de_relleno" id="password"  maxlength="50" placeholder="Ingrese su contraseña" />
+              <div id="password_error" class="error"></div>
+            </div>
+
+            <div class="mini_container">
+              <label for="repassword" >Repetir Contaseña*:</label><br/>
+              <input type="repassword" name="repassword" class="espacio_de_relleno" id="repassword" maxlength="50" placeholder="Repita su contraseña" />
+              <div id="repassword_error" class="error"></div>
+            </div>
+
+            <div class="mini_container">
+              <label for="genero">Indique el genero</label> <br>
+              <input type="radio" name="genero" value="Hombre">Hombre<br>
+              <input type="radio" name="genero" value="Mujer">Mujer<br>
+              <input type="radio" name="genero" value="Otro">Otro
+            </div>
+
+            <div class="mini_container">
+              <label for="rendimiento_cocina">Como cocinas?</label><br>
+              <input type="radio" name="rendimiento_cocina" value="Puedo ir a Masterchef"> Puedo ir a Masterchef <br>
+              <input type="radio" name="rendimiento_cocina" value="Me defiendo"> Me defiendo <br>
+              <input type="radio" name="rendimiento_cocina" value="Se me pasan los fideos"> Se me pasan los fideos
+            </div>
+            <input  type="submit" class="submit" name="Submit" value="Registrarme" />
           </div>
 
-          <div class="mini_conteiner">
-            <label for="email" >Email:</label><br/>
-            <input type="text" name="email" class="espacio_de_relleno" id="email" value="" maxlength="50" placeholder="Ingrese su email" /><br/>
-            <span id="mail_error" class="error"></span>
+          <div class="imagenes_decoracion_registro">
+            <p>"No existe modernidad sin una buena tradicion!"</p>
+            <img class="imagenes"src="images/imagen3.jpg" alt="foto_plato">
           </div>
-
-          <div class="mini_conteiner">
-            <label for="username" >Nombre de usuario*:</label><br/>
-            <input type="text" name="username" class="espacio_de_relleno" id="username" value="" maxlength="50" /><br/>
-            <span id="username_error" class="error"></span>
-          </div>
-
-          <div class="mini_conteiner">
-            <label for="password" >Contaseña*:</label><br/>
-            <input type="password" name="password" class="espacio_de_relleno" id="password"  maxlength="50" placeholder="Ingrese su contraseña" />
-            <div id="password_error" class="error"></div>
-          </div>
-
-          <div class="mini_conteiner">
-            <label for="repassword" >Repetir Contaseña*:</label><br/>
-            <input type="repassword" name="repassword" class="espacio_de_relleno" id="repassword" maxlength="50" placeholder="Repita su contraseña" />
-            <div id="repassword_error" class="error"></div>
-          </div>
-
-          <div class="mini_conteiner">
-            <label for="genero">Indique el genero</label> <br>
-            <input type="radio" name="genero" value="Hombre">Hombre<br>
-            <input type="radio" name="genero" value="Mujer">Mujer<br>
-            <input type="radio" name="genero" value="Otro"> Otro
-          </div>
-
-          <div class="mini_conteiner">
-            <label for="rendimiento_cocina">Como cocinas?</label><br>
-            <input type="radio" name="rendimiento_cocina" value="Puedo ir a Masterchef"> Puedo ir a Masterchef <br>
-            <input type="radio" name="rendimiento_cocina" value="Me defiendo"> Me defiendo <br>
-            <input type="radio" name="rendimiento_cocina" value="Se me pasan los fideos"> Se me pasan los fideos
-          </div>
-          <input  type="submit" class="submit" name="Submit" value="Registrarme" />
         </div>
-      </form>
-
-      <!--<div class="volver">
-        <a href="home.php">Volver</a>
-      </div>-->
+      </form>      
     </section>
-
-    <section class="imagenes_decoracion_registro">
-      <p>"No existe modernidad sin una buena tradicion!"</p>
-      <img class="imagenes"src="images/imagen3.jpg" alt="foto_plato">
-
-    </section>
-
     <?php
       include ("footer.php");
     ?>
