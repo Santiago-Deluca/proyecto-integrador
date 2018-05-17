@@ -38,6 +38,12 @@
 
   </section>
 
+  <section class="imagenes_decoracion_login">
+    <p>"La comida es mucho mejor cuando se comparte"</p>
+    <img class="imagenes"src="images/personas_comiendo.jpg" alt="foto_personas">
+
+  </section>
+
   <?php
     include ("footer.php");
   ?>

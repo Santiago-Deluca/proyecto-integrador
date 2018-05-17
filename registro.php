@@ -68,6 +68,12 @@
       </div>-->
     </section>
 
+    <section class="imagenes_decoracion_registro">
+      <p>"No existe modernidad sin una buena tradicion!"</p>
+      <img class="imagenes"src="images/imagen3.jpg" alt="foto_plato">
+
+    </section>
+
     <?php
       include ("footer.php");
     ?>

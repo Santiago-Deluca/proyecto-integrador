@@ -327,12 +327,31 @@ input.submit{
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    font-size: 'Tajawal', sans-serif;
     text-transform: capitalize;
+    position: relative;
+    left: 20px;
+}
+section.imagenes_decoracion_registro{
+ display: block;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+}
+img.imagenes{
+  width: 500px;
+  border: 2px solid #BDBDBD;
+  border-radius: 2%;;
 }
 
 /*LOG IN*/
 .text_login {
   color:  #0B3B39;
-  
+}
+
+section.imagenes_decoracion_login{
+   display: block;
+   position: absolute;
+   top: 35%;
+   left: 50%;
+  }
 }
