@@ -1,0 +1,221 @@
+// El cliente pide que en la registración, el usuario pueda subir una foto de perfil.
+
+Hay que modificar el form anterior y agregar un nuevo input type="file"
+<form id="register" action="" method="post" enctype="multipart/form-data">
+
+          <div class="mini_container">
+             Cargar imagen:
+             <input type="hidden" name="MAX_FILE_SIZE" value="30000">
+              <input type="file" name="avatar" id="">
+              <input type="submit" value="Subir Imagen " name="submit">
+           </div>
+   En la cabecera del archivo hay que agregar esto de php 
+   
+  <?php
+    if ($_POST) {
+  $original = $_FILES["avatar"];
+
+  if ($original["error"] === UPLOAD_ERR_OK) { //UPLOAD_ERR_OK es equivalente a 0
+    $nombreViejo = $original["name"]; // Nombre original del archivo
+    $extension = pathinfo($nombreViejo, PATHINFO_EXTENSION); // Extensión del archivo subido
+
+    $nombreNuevo = $original["tmp_name"]; // Nombre temporal en el servidor
+
+    $archivoFinal = dirname(__FILE__); // Agarramos el archivo donde estamos parados ahora mismo
+    $archivoFinal .= "/images/"; // .= nos permite concatenar, en este caso es lo mismo que poner $archivoFinal = $archivoFinal . "/img/"
+    $archivoFinal .= uniqid() . "." . $extension; // uniqid genera un ID "único" para la foto
+
+    // var_dump($nombreNuevo, $archivoFinal);exit;
+
+    move_uploaded_file($nombreNuevo, $archivoFinal); // movemos el archivo a la ubicación final
+  }
+}
+ ?>    
+ 
+ creo una funcion para validar Avatar 
+ 
+ function validarAvatar($file) {
+    if($file["error"] === UPLOAD_ERR_OK) {
+        $nombre = $file["name"];
+        $ext = pathinfo($nombre, PATHINFO_EXTENSION);
+        if ($ext == "jpg") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    return false;
+ 
+ 
+ 
+ -------------------------------------------------------------------------------------------------------------------
+ 
+ function usuarioNuevo() {
+    return [
+        "nombre" => null,
+        "email" => null,
+        "password" => null,
+        "avatar_url" => "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwibjuy0gtTaAhVGymMKHTYBBbgQjRx6BAgAEAU&url=https%3A%2F%2Fwww.facebook.com%2FProfilePictures%2F&psig=AOvVaw0qouB_cOvATbwUSbO0di7J&ust=1524697356844844"
+    ];
+}
+
+
+
+function crearUsuario($usuario) {
+    // hashear el password del usuario
+    $usuario["password"] = password_hash($usuario["password"], PASSWORD_BCRYPT);
+    // detectar si se ha subido un avatar y generar la URL
+    if (is_array($usuario["avatar_url"])) {;
+    
+      if ($_POST) {
+  $original = $_FILES["avatar"];
+
+  if ($original["error"] === UPLOAD_ERR_OK) { //UPLOAD_ERR_OK es equivalente a 0
+    $nombreViejo = $original["name"]; // Nombre original del archivo
+    $extension = pathinfo($nombreViejo, PATHINFO_EXTENSION); // Extensión del archivo subido
+
+    $nombreNuevo = $original["tmp_name"]; // Nombre temporal en el servidor
+
+    $archivoFinal = dirname(__FILE__); // Agarramos el archivo donde estamos parados ahora mismo
+    $archivoFinal .= "/images/"; // .= nos permite concatenar, en este caso es lo mismo que poner $archivoFinal = $archivoFinal . "/img/"
+    $archivoFinal .= uniqid() . "." . $extension; // uniqid genera un ID "único" para la foto
+
+    // var_dump($nombreNuevo, $archivoFinal);exit;
+
+    move_uploaded_file($nombreNuevo, $archivoFinal); // movemos el archivo a la ubicación final
+
+        $nombre = $usuario["avatar_url"]["name"];
+        $archivo = $usuario["avatar_url"]["tmp_name"];
+        $extension = pathinfo($nombreViejo, PATHINFO_EXTENSION); // Extensión del archivo subido
+
+         $miArchivo = dirname(__FILE__);
+         $archivoFinal .= "/images/"; // .= nos permite concatenar, en este caso es lo mismo que poner $archivoFinal = $archivoFinal . "/img/"
+         $archivoFinal .= uniqid() . "." . $extension; // uniqid genera un ID "único" para la foto
+         $miArchivo = $miArchivo . $usuario["username"] . "_profile" .  $ext;
+
+        $movido = move_uploaded_file($archivo, $miArchivo);;
+
+        $usuario["avatar_url"] = $miArchivo;
+    }
+ 
+ En la funcion crear usuario  verifico si subieron avatar y si esta vlidado : 
+ 
+
+		if (isset($_FILES["avatar"]) && validarAvatar($_FILES["avatar"])) {
+			$user["avatar_url"] = $_FILES["avatar"];
+		}
+        // Si no hubo errores, guardo el usuario
+        if (! huboErrores($errores)) {
+						//también me guardo el nombre y el mail 
+						$user["nombre"] = $_POST["name"];
+						$user["email"] = $_POST["email"];
+            					
+
+						//creo usuario y defino Cookies 
+            if (crearUsuario($user)) {
+							//iniciar sesión
+							session_start();
+							//defino cuanto quiero que dure mi cookies (en este caso una hora)
+							$vencimiento=time()+60*60*24*7;
+							//defino cookies
+							setcookie('email',$_POST['email'],$vencimiento,'/');
+							setcookie('avatar',$user['avatar_url'],$vencimiento,'/');
+							//definir el usuarios
+							$_SESSION['email']=$_POST["email"];
+							header("Location: home.php");
+								//Iniciar Sesion
+					  	} else {
+									exit("Ha ocurrido un error inesperado");
+								}
+        	}
+ 
+ 
+ 2  El cliente pide que la página distinga usuarios logueados. Para esto pide implementar una de las dos funcionalidades descriptas a continuación
+
+
+- Opción 1: Al loguearse, el usuario debe ser enviado a una página de BIENVENIDA. Si quiere acceder a este sitio deslogueado se lo redirigirá al formulario de login. 
+
+
+
+- Opción 2: Incluir una sección en común a todo el sitio (por ejemplo un encabezado). Si el usuario esta logueado debe indicar su nombre de usuario. En caso de no estar logueado debe tener un link a la página de Login.
+
+ Utilio esta opcion   genero un head_sesion.php  donde  modifico los link que no uso cuando el usuario esta loguado 
+ 
+ <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <body>
+	<header>
+      <div class="cabecera-de-pagina">
+        <div class="logo">
+          <img src="images/Logo.png" alt="logo">
+        </div>
+       	<div class="menu-movil">
+          <span></span>
+          <span></span>
+     	    <span></span>
+        </div>
+
+        <nav class="navegacion-principal">
+          <div class="contenedor_login">
+          <div class="foto_user">
+              <img src="images/perfil1.jpg" alt="avatar" width=60px height=60px  style=border-radius:50%>
+          </div>
+          <div class="nombre_usuario">
+            <a href="" class="bienvenido"><h1>Bienvenido, <strong><?php echo ($_COOKIE['email']); ?></h1></a>
+          </div>
+          <div class="logout">
+            <a href="logout.php" class="desconectate"><h1>Logout</h1></a>
+         </div>
+          <a href="home.php">Home</a>
+          <a href="faq.php">Preguntas frecuentes</a>
+
+        </nav>
+      </div>
+    </header>
+  </body>
+</html>
+ 
+ 
+ en el home habria que incluir lo siguiente  ( Y verificar si funciona ) 
+ 
+ <body>
+		<?php
+		  if(isset($_COOKIE['email'])){
+      include ("head_sesion.php");
+		} else {
+      include ("head.php");
+		}
+    ?>
+ 
+ 
+ 
+ 
+ 3-- El sitio debe contar con una opción para desloguearse.
+ 
+ Genero el archivo logout.php que tiene lo siguiente : 
+ 
+ <?php
+session_start();
+setcookie('email','',$vencimiento,'/');
+session_destroy();
+header("Location: home.php");
+?>
+
+---------------------------------------------------------------------------------------------------------------------------
+Funciones a agregar 
+
+function loguear($email) {
+     $_SESSION["usuarioLogueado"] = $email;
+   }
+
+ function estaLogueado() {
+   if (isset($_SESSION["usuarioLogueado"])) {
+       return true;
+  }    else {
+  return false;
+    }
+ }
+
+function recordarUsuario($email) {
+   setcookie("usuarioLogueado", $email, time() + 360*24*7);
+   }
