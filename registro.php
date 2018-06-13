@@ -1,3 +1,17 @@
+<?php
+require_once "validacion_registro.php";
+  if ($_POST){
+  $errores = validacion_registro($_POST);
+  $errorExiste =datos_existentes($_POST);
+   if (empty($errores) && empty($errorExiste)) {
+     $usuario = crearUsuario($_POST);
+     guardarUsuario($usuario);
+     //header('Location: login.php');
+   }
+
+  }
+ ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -17,50 +31,41 @@
       <form id="register" action="" method="post">
         <div class="container">
           <div class="panel">
-            <h3 class="text_login">Registrarse:</h3>            
-            <div class="mini_container">
+            <h3 class="text_login">Registrarse:</h3>
+            <span class="error"><?php echo isset( $errorExiste["username"]) ? $errorExiste["username"] : ""  ; ?> </span>
+            <span class="error"><?php echo isset( $errorExiste["email"]) ? $errorExiste["email"] : ""   ; ?> </span>
+              <div class="mini_container">
               <label for="name" >Nombre completo: </label>  <br/>
-              <input type="text" name="name" class="espacio_de_relleno" id="name" value=""  maxlength="50" /><br/>
-              <span class="error"></span>
-            </div>
+              <input type="text" name="name" class="espacio_de_relleno" id="name" value="<?php echo isset($_POST['name']) ? $_POST['name'] : '' ?>"  maxlength="50" /><br/>
+              <span class="error"> <?php echo isset( $errores["name"]) ? $errores["name"] : ""  ; ?></span>
+              </div>
 
-            <div class="mini_container">
-              <label for="email" >Email:</label><br/>
-              <input type="text" name="email" class="espacio_de_relleno" id="email" value="" maxlength="50" placeholder="Ingrese su email" /><br/>
-              <span id="mail_error" class="error"></span>
-            </div>
 
             <div class="mini_container">
               <label for="username" >Nombre de usuario*:</label><br/>
-              <input type="text" name="username" class="espacio_de_relleno" id="username" value="" maxlength="50" /><br/>
-              <span id="username_error" class="error"></span>
+              <input type="text" name="username" class="espacio_de_relleno" id="username" value="<?php echo isset($_POST['username']) ? $_POST['username'] : '' ?>" maxlength="50" /><br/>
+              <span id="username_error" class="error"><?php echo isset( $errores["username"]) ? $errores["username"] : ""  ; ?></span>
             </div>
+
+            <div class="mini_container">
+              <label for="email" >Ingrese su email*:</label><br/>
+              <input type="email" name="email" class="espacio_de_relleno" id="email" value="<?php echo isset($_POST['email']) ? $_POST['email'] : '' ?>" maxlength="50"  />
+              <span id="email_error" class="error"><?php echo isset( $errores["email"]) ? $errores["email"] : ""  ; ?></span>
+            </div>
+
 
             <div class="mini_container">
               <label for="password" >Contaseña*:</label><br/>
               <input type="password" name="password" class="espacio_de_relleno" id="password"  maxlength="50" placeholder="Ingrese su contraseña" />
-              <div id="password_error" class="error"></div>
+              <span id="password_error" class="error"><?php echo isset( $errores["password"]) ? $errores["password"] : ""  ; ?></span>
             </div>
 
             <div class="mini_container">
               <label for="repassword" >Repetir Contaseña*:</label><br/>
-              <input type="repassword" name="repassword" class="espacio_de_relleno" id="repassword" maxlength="50" placeholder="Repita su contraseña" />
-              <div id="repassword_error" class="error"></div>
+              <input type="password" name="repassword" class="espacio_de_relleno" id="repassword" maxlength="50" placeholder="Repita su contraseña" />
+              <span id="repassword_error" class="error"><?php echo isset( $errores["repassword"]) ? $errores["repassword"] : ""  ; ?></span>
             </div>
 
-            <div class="mini_container">
-              <label for="genero">Indique el genero</label> <br>
-              <input type="radio" name="genero" value="Hombre">Hombre<br>
-              <input type="radio" name="genero" value="Mujer">Mujer<br>
-              <input type="radio" name="genero" value="Otro">Otro
-            </div>
-
-            <div class="mini_container">
-              <label for="rendimiento_cocina">Como cocinas?</label><br>
-              <input type="radio" name="rendimiento_cocina" value="Puedo ir a Masterchef"> Puedo ir a Masterchef <br>
-              <input type="radio" name="rendimiento_cocina" value="Me defiendo"> Me defiendo <br>
-              <input type="radio" name="rendimiento_cocina" value="Se me pasan los fideos"> Se me pasan los fideos
-            </div>
             <input  type="submit" class="submit" name="Submit" value="Registrarme" />
           </div>
 
@@ -69,7 +74,7 @@
             <img class="imagenes"src="images/imagen3.jpg" alt="foto_plato">
           </div>
         </div>
-      </form>      
+      </form>
     </section>
     <?php
       include ("footer.php");

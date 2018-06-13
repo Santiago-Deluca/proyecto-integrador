@@ -32,7 +32,7 @@
             <a href="">¿Has olvidado tu contraseña?</a>
           </h4>
           <h4 class="text_login">
-            <small>¿Aún no estás registrado? 
+            <small>¿Aún no estás registrado?
               <a href="registro.php">Registrate aqui.</a>
             </small>
           </h4>
@@ -46,5 +46,6 @@
     <?php
       include ("footer.php");
     ?>
+
   </body>
 </html>
