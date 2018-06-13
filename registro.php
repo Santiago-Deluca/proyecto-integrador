@@ -6,10 +6,30 @@ require_once "validacion_registro.php";
    if (empty($errores) && empty($errorExiste)) {
      $usuario = crearUsuario($_POST);
      guardarUsuario($usuario);
-     //header('Location: login.php');
+      // $avatar=subirAvatar($_POST);
+     header('Location: login.php');
    }
-
   }
+//
+// if ($_POST) {
+//   $original = $_FILES["avatar"];
+//
+//   if ($original["error"] === UPLOAD_ERR_OK) { //UPLOAD_ERR_OK es equivalente a 0
+//     $nombreViejo = $original["name"]; // Nombre original del archivo
+//     $extension = pathinfo($nombreViejo, PATHINFO_EXTENSION); // Extensión del archivo subido
+//
+//     $nombreNuevo = $original["tmp_name"]; // Nombre temporal en el servidor
+//
+//     $archivoFinal = dirname(__FILE__); // Agarramos el archivo donde estamos parados ahora mismo
+//     $archivoFinal .= "/images/"; // .= nos permite concatenar, en este caso es lo mismo que poner $archivoFinal = $archivoFinal . "/img/"
+//     $archivoFinal .= uniqid() . "." . $extension; // uniqid genera un ID "único" para la foto
+//
+//     // var_dump($nombreNuevo, $archivoFinal);exit;
+//
+//     move_uploaded_file($nombreNuevo, $archivoFinal); // movemos el archivo a la ubicación final
+//   }
+// }
+
  ?>
 
 <!DOCTYPE html>
@@ -65,6 +85,14 @@ require_once "validacion_registro.php";
               <input type="password" name="repassword" class="espacio_de_relleno" id="repassword" maxlength="50" placeholder="Repita su contraseña" />
               <span id="repassword_error" class="error"><?php echo isset( $errores["repassword"]) ? $errores["repassword"] : ""  ; ?></span>
             </div>
+
+            <div class="mini_container">
+              Cargar imagen:
+              <!-- <input type="hidden" name="MAX_FILE_SIZE" value="30000"/> -->
+               <input type="file" name="avatar" id=""/>
+             <span id="avatar_error" class="error"><?php echo isset( $errores["avatar"]) ? $errores["avatar"] : ""  ; ?></span>
+            </div>
+
 
             <input  type="submit" class="submit" name="Submit" value="Registrarme" />
           </div>

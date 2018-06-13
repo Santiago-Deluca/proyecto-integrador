@@ -20,6 +20,9 @@ function validacion_registro($datos){
   }elseif ($datos["password"]!==$datos["repassword"]) {
     $errores["repassword"]="Las contraseñas no coinciden";
   }
+  if (empty($datos["avatar"])) {
+    $errores["avatar"]="Por favor ingrese su foto perfil";
+  }
 
   return $errores;
 
@@ -51,6 +54,7 @@ function crearUsuario($datos){
     "email" => $datos["email"],
     "username" => $datos ["username"],
     "password" => password_hash($datos["password"],PASSWORD_DEFAULT),
+    "avatar" =>$datos["avatar"],
   ];
 
 }
@@ -91,4 +95,59 @@ function validarUsuario($datos){
 
   }
 
+}
+
+function subirAvatar(){
+    if ($_POST) {
+    $original = $_FILES["avatar"];
+
+  if ($original["error"] === UPLOAD_ERR_OK) { //UPLOAD_ERR_OK es equivalente a 0
+    $nombreViejo = $original["name"]; // Nombre original del archivo
+    $extension = pathinfo($nombreViejo, PATHINFO_EXTENSION); // Extensión del archivo subido
+    $nombreNuevo = $original["tmp_name"]; // Nombre temporal en el servidor
+
+    $archivoFinal = dirname(__FILE__); // Agarramos el archivo donde estamos parados ahora mismo
+    $archivoFinal .= "/images/perfiles"; // .= nos permite concatenar, en este caso es lo mismo que poner $archivoFinal = $archivoFinal . "/img/"
+    $archivoFinal .= uniqid() . "." . $extension; // uniqid genera un ID "único" para la foto
+
+    // var_dump($nombreNuevo, $archivoFinal);exit;
+
+    move_uploaded_file($nombreNuevo, $archivoFinal); // movemos el archivo a la ubicación final
+  }
+}
+
+// function validarAvatar($_FILE["avatar"]) {
+//       $errores_avatar=[];
+//    if($_FILE["avatar"]["error"] === UPLOAD_ERR_OK) {
+//         $nombre = $_FILE["avatar"]["name"];
+//         $ext = pathinfo($nombre, PATHINFO_EXTENSION);
+//         if ($ext === "jpg") || ($ext === "png") {
+//             return true;
+//         } else {
+//             return $errores_avatar= "La foto debe tener extension .jpg o .png";
+//         }
+//     }
+//     return $errores_avatar["error"]="Su foto no ha podido ser cargada";
+// }
+// }
+
+//
+// funcion inicioSesion() {
+// if ($datos) {
+// 				// El password corresponde al del usuario???
+// 					if (password_verify($_POST['contrasena'], $usuario['password'])){
+// 											session_start();   //iniciar sesión
+// 											//defino cuanto quiero que dure mi cookies (en este caso una hora)
+// 											$vencimiento=time()+60*60*24*7;
+// 											//defino cookies
+// 											setcookie('email',$_POST['email'],$vencimiento,'/');
+// 											setcookie('avatar',$datos['avatar'],$vencimiento,'/');
+// 											//definir el usuarios
+// 											$_SESSION['email']=$_COOKIE["email"];
+// 											header("Location: home.php");  //te redirige a bienvenido
+// 											//INICIAR SESION
+// 										}else {
+// 											$errores_login_password["password"] = "La contraseña ingresada no es correcta";
+// 						}
+// }
 }

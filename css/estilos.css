@@ -17,7 +17,7 @@ section.cuerpo {
 div.container{
   display: flex;
   flex-direction: row;
-  justify-content: center;  
+  justify-content: center;
   padding-top: 10px;
   flex-wrap: wrap;
 }
@@ -44,16 +44,16 @@ div.panel{
   border: 1px solid #BDBDBD;
   border-radius: 2%;
   padding: 30px;
-  width: 270px;  
+  width: 270px;
   min-width:270px;
-}  
+}
 div.panelbig{
   border: 1px solid #BDBDBD;
   border-radius: 2%;
   padding: 50px;
-  width: 80%;  
+  width: 80%;
 
-}  
+}
 div.panelb80{
   display: none;
 }
@@ -69,6 +69,7 @@ div.panelb80{
 div.mini_container{
   padding: 10px;
 }
+
 
 input.espacio_de_relleno{
   background-color: white;
@@ -111,8 +112,8 @@ div.imagenes_decoracion_registro{
 }
 @media only screen and (min-width:992px){
   div.imagenes_decoracion_registro{
-    display: inline-block;  
-    padding-left: 30px; 
+    display: inline-block;
+    padding-left: 30px;
   }
 }
 
@@ -126,8 +127,8 @@ div.imagenes_decoracion_login{
 }
 @media only screen and (min-width:992px){
   div.imagenes_decoracion_login{
-    display: inline-block;  
-    padding-left: 30px; 
+    display: inline-block;
+    padding-left: 30px;
   }
 }
 
