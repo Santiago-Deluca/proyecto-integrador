@@ -1,36 +1,17 @@
 <?php
-require_once "validacion_registro.php";
-  if ($_POST){
-  $errores = validacion_registro($_POST);
-  $errorExiste =datos_existentes($_POST);
-   if (empty($errores) && empty($errorExiste)) {
-     $usuario = crearUsuario($_POST);
-     guardarUsuario($usuario);
-      // $avatar=subirAvatar($_POST);
-     header('Location: login.php');
-   }
+  require_once "librerias/validacion_registro.php";
+    if ($_POST){
+    $errores = validacion_registro($_POST);
+    $errorExiste = datos_existentes($_POST);
+    $errorAvatar = validacion_avatar($_FILES["avatar"]);
+    if (empty($errores) && empty($errorExiste) && empty($errorAvatar)) {
+      $avatar = subirAvatar($_FILES["avatar"]);
+      $usuario = crearUsuario($_POST,$avatar);
+      guardarUsuario($usuario);
+      header('Location: login.php');
+    }
   }
-//
-// if ($_POST) {
-//   $original = $_FILES["avatar"];
-//
-//   if ($original["error"] === UPLOAD_ERR_OK) { //UPLOAD_ERR_OK es equivalente a 0
-//     $nombreViejo = $original["name"]; // Nombre original del archivo
-//     $extension = pathinfo($nombreViejo, PATHINFO_EXTENSION); // Extensión del archivo subido
-//
-//     $nombreNuevo = $original["tmp_name"]; // Nombre temporal en el servidor
-//
-//     $archivoFinal = dirname(__FILE__); // Agarramos el archivo donde estamos parados ahora mismo
-//     $archivoFinal .= "/images/"; // .= nos permite concatenar, en este caso es lo mismo que poner $archivoFinal = $archivoFinal . "/img/"
-//     $archivoFinal .= uniqid() . "." . $extension; // uniqid genera un ID "único" para la foto
-//
-//     // var_dump($nombreNuevo, $archivoFinal);exit;
-//
-//     move_uploaded_file($nombreNuevo, $archivoFinal); // movemos el archivo a la ubicación final
-//   }
-// }
-
- ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -48,12 +29,13 @@ require_once "validacion_registro.php";
     ?>
 
     <section class="cuerpo">
-      <form id="register" action="" method="post">
+      <form id="register" action="" method="post" enctype="multipart/form-data">
         <div class="container">
           <div class="panel">
             <h3 class="text_login">Registrarse:</h3>
             <span class="error"><?php echo isset( $errorExiste["username"]) ? $errorExiste["username"] : ""  ; ?> </span>
             <span class="error"><?php echo isset( $errorExiste["email"]) ? $errorExiste["email"] : ""   ; ?> </span>
+
               <div class="mini_container">
               <label for="name" >Nombre completo: </label>  <br/>
               <input type="text" name="name" class="espacio_de_relleno" id="name" value="<?php echo isset($_POST['name']) ? $_POST['name'] : '' ?>"  maxlength="50" /><br/>
@@ -89,8 +71,8 @@ require_once "validacion_registro.php";
             <div class="mini_container">
               Cargar imagen:
               <!-- <input type="hidden" name="MAX_FILE_SIZE" value="30000"/> -->
-               <input type="file" name="avatar" id=""/>
-             <span id="avatar_error" class="error"><?php echo isset( $errores["avatar"]) ? $errores["avatar"] : ""  ; ?></span>
+              <input type="file" name="avatar" id=""/>
+              <span id="avatar_error" class="error"><?php echo isset( $errorAvatar["avatar"]) ? $errorAvatar["avatar"] : ""  ; ?></span>
             </div>
 
 

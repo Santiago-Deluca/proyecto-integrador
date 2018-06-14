@@ -39,6 +39,11 @@ h2.faq{
   text-align:left;
 }
 
+span.error{
+  font-size: 0.75em;
+  color: red;
+  font-style: italic;
+}
 
 div.panel{
   border: 1px solid #BDBDBD;
