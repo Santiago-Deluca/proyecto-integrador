@@ -1,6 +1,6 @@
 <?php
   require_once "librerias/validacion_registro.php";
-    if ($_POST){
+  if ($_POST){
     $errores = validacion_registro($_POST);
     $errorExiste = datos_existentes($_POST);
     $errorAvatar = validacion_avatar($_FILES["avatar"]);

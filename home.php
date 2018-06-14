@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -11,7 +15,7 @@
   </head>
   <body>
     <?php
-    include ("head.php");
+      isset($_SESSION['email']) ? include ("head_sesion.php") : include ("head.php");
     ?>
 
     <section class="cuerpo">

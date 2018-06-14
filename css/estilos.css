@@ -130,11 +130,17 @@ div.imagenes_decoracion_registro{
 div.imagenes_decoracion_login{
   display: none;
 }
+#bienvenido{
+  display: none;
+}
 @media only screen and (min-width:992px){
   div.imagenes_decoracion_login{
     display: inline-block;
     padding-left: 30px;
-  }
+  } 
+  #bienvenido{
+    display: inline-block;
+  }  
 }
 
 
