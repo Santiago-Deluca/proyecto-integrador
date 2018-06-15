@@ -1,6 +1,6 @@
 <?php
   require_once "librerias/validacion_registro.php";
-
+  $Login = false;
   if ($_POST){
     $errores = validar_formulario($_POST);
     if (empty($errores)) {
