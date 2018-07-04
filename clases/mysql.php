@@ -7,7 +7,7 @@ class Mysql extends DB {
   public function __construct() {
     $dsn = "mysql:host=localhost;dbname=proyecto;charset=utf8mb4;port=3306"; //En MAC (OSX) es 8889 el puerto
     $user = "root";
-    $pass = "root";
+    $pass = "";
 
     $this->conexion = new PDO($dsn, $user, $pass); // Guardamos en el atributo $conexión el objeto PDO
   }
@@ -15,11 +15,11 @@ class Mysql extends DB {
 
   // Insertamos un usuario en la base de datos
    public function guardarUsuario(Usuario $usuario) {
-    $sql = 'INSERT INTO usuarios (username, email, password, avatar) VALUES (:username,:email, :password, :avatar)';
+    $sql = 'INSERT INTO usuarios (name,username, email, password, avatar) VALUES (:name,:username,:email, :password, :avatar)';
     $query = $this->conexion->prepare($sql);
 
+    $query->bindParam(":name", $usuario->getName());
     $query->bindParam(":username", $usuario->getUsername());
-
     $query->bindParam(":email", $usuario->getEmail());
     $query->bindParam(":password", $usuario->getPassword());
     $query->bindParam(":avatar", $usuario->getAvatar());
@@ -40,7 +40,7 @@ class Mysql extends DB {
     $usuario = $query->fetch(PDO::FETCH_ASSOC);
 
     if ($usuario !== false) {
-      $nuevoUsuario = new Usuario($usuario["username"], $usuario["email"], $usuario["password"], $usuario["avatar"]);
+      $nuevoUsuario = new Usuario( $usuario["name"],$usuario["username"], $usuario["email"], $usuario["password"], $usuario["avatar"]);
       return $nuevoUsuario;
     }
     return false;

@@ -1,17 +1,38 @@
 <?php
-  require_once "librerias/validacion_registro.php";
-  if ($_POST){
-    $errores = validacion_registro($_POST);
-    $errorExiste = datos_existentes($_POST);
-    $errorAvatar = validacion_avatar($_FILES["avatar"]);
-    if (empty($errores) && empty($errorExiste) && empty($errorAvatar)) {
-      $avatar = subirAvatar($_FILES["avatar"]);
-      $usuario = crearUsuario($_POST,$avatar);
-      guardarUsuario($usuario);
-      header('Location: login.php');
-    }
-  }
-?>
+require_once "autoload.php";
+require_once "helpers.php";
+  if ($_POST) {
+
+    $errores = Validacion::validarDatos($_POST, $db, $_FILES); // Validamos los datos que nos mandan
+
+    if(empty($errores)){ // Si no hay errores creamos el usuario
+        $usuario = new Usuario($_POST["name"], $_POST["username"], $_POST["email"],  $_POST["password"],"");
+        $usuario->hashPassword(); //Encriptamos la contraseña
+
+       // Si se recibió una foto además de datos, cargamos la foto
+        $imagen = $db->cargarFoto1($_FILES['avatar']);
+        $usuario->setAvatar($imagen);   // Le seteamos la foto al usuario
+
+        $db->guardarUsuario($usuario); //Guardamos el usuario con foto incluída
+        header("Location:login.php");
+        }
+      }
+
+
+
+//   require_once "librerias/validacion_registro.php";
+//   if ($_POST){
+//     $errores = validacion_registro($_POST);
+//     $errorExiste = datos_existentes($_POST);
+//     $errorAvatar = validacion_avatar($_FILES["avatar"]);
+//     if (empty($errores) && empty($errorExiste) && empty($errorAvatar)) {
+//       $avatar = subirAvatar($_FILES["avatar"]);
+//       $usuario = crearUsuario($_POST,$avatar);
+//       guardarUsuario($usuario);
+//       header('Location: login.php');
+//     }
+//   }
+// ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -33,8 +54,8 @@
         <div class="container">
           <div class="panel">
             <h3 class="text_login">Registrarse:</h3>
-            <span class="error"><?php echo isset( $errorExiste["username"]) ? $errorExiste["username"] : ""  ; ?> </span>
-            <span class="error"><?php echo isset( $errorExiste["email"]) ? $errorExiste["email"] : ""   ; ?> </span>
+            <span class="error"><?php echo isset( $errores["username"]) ? $errores["username"] : ""  ; ?> </span>
+            <span class="error"><?php echo isset( $errores["email"]) ? $errores["email"] : ""   ; ?> </span>
 
               <div class="mini_container">
               <label for="name" >Nombre completo: </label>  <br/>
@@ -72,7 +93,7 @@
               Cargar imagen:
               <!-- <input type="hidden" name="MAX_FILE_SIZE" value="30000"/> -->
               <input type="file" name="avatar" id=""/>
-              <span id="avatar_error" class="error"><?php echo isset( $errorAvatar["avatar"]) ? $errorAvatar["avatar"] : ""  ; ?></span>
+              <span id="avatar_error" class="error"><?php echo isset( $errores["avatar"]) ? $errores["avatar"] : ""  ; ?></span>
             </div>
 
 

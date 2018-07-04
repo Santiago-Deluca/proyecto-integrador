@@ -12,7 +12,7 @@
      	  <span></span>
         </div>
           <nav class="navegacion-principal">
-          <a href="home.php">Home</a>
+          <a href="index.php">Home</a>
           <a href="faq.php">Preguntas frecuentes</a>
           <a href="login.php">Ingresar</a>
           <a href="registro.php">Registrate</a>

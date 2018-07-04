@@ -1,5 +1,6 @@
 <?php
-  session_start();
+require_once "autoload.php";
+require_once "helpers.php";
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +50,7 @@
         </div>
         <div>
           <img class="imagenes_exp"src="images/exp4.png" alt="Explicacion 4">
-        </div>  
+        </div>
       </div>
     </section>
 

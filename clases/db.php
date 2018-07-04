@@ -19,19 +19,17 @@ abstract class DB {
       $nombreNuevo = $original["tmp_name"]; // Nombre temporal en el servidor
 
       $archivoFinal = realpath(dirname(__FILE__) . '/..'); // Agarramos el archivo donde estamos parados ahora mismo y subimos una carpeta
-      $archivoFinal .= "/img/"; // .= nos permite concatenar, en este caso es lo mismo que poner
+      $archivoFinal .= "\images\perfiles\\"; // .= nos permite concatenar, en este caso es lo mismo que poner
       $nombreFinal = uniqid() . "." . $extension; // uniqid genera un ID "único" para la foto
       $archivoFinal .= $nombreFinal;
 
       move_uploaded_file($nombreNuevo, $archivoFinal); // copiamos el archivo a la ubicación final
-      return  "img/" . $nombreFinal;
+      return  $nombreFinal;
     }
-    // }else{
-    //   return "img/avatar1.png" ;
     }
 
 
   }
-}
+
 
 ?>

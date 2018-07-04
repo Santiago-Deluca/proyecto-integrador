@@ -7,10 +7,10 @@ class Session {
   }
 
   public function login ($email, $password) {
-    $_SESSION['login'] = $_POST['email'];
+    $_SESSION['email'] = $email;
 
-      if(!empty($_POST['acordate'])){
-        setcookie("email",$_POST['email'],time()+(10*365*24*60*60));
+      if(!empty($_POST['recordar'])){
+        setcookie("email",$email,time()+(10*365*24*60*60));
       }else{
         if (isset($_COOKIE['email'])) {
            setcookie("email","");

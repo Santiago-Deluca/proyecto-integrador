@@ -1,20 +1,35 @@
 <?php
-  require_once "librerias/validacion_registro.php";
-<<<<<<< HEAD
-   $Login = false;
-=======
-  $Login = false;
->>>>>>> ed2e376f58f549e09e7bcd515238dd1a675f75af
-  if ($_POST){
-    $errores = validar_formulario($_POST);
-    if (empty($errores)) {
-      $Login = validarUsuario($_POST);
-      if ($Login) {
-        inicioSesion($_POST);
-        header('Location: home.php');
-      }
+
+
+require_once "autoload.php";
+require_once "helpers.php";
+
+if ($_POST) {
+    $errores = Validacion::validarDatosLogin($_POST, $db);
+    var_dump($errores);
+    if(empty($errores)){
+        $session->login($_POST["email"], $_POST["password"]);
+      header("Location:index.php");
     }
-  }
+
+}
+
+
+  // require_once "librerias/validacion_registro.php";
+  //
+  //  $Login = false;
+  //
+  //
+  // if ($_POST){
+  //   $errores = validar_formulario($_POST);
+  //   if (empty($errores)) {
+  //     $Login = validarUsuario($_POST);
+  //     if ($Login) {
+  //       inicioSesion($_POST);
+  //       header('Location: index.php');
+  //     }
+  //   }
+  // }
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +52,7 @@
         <div class="container">
           <div class="panel">
             <h3 class="text_login">Ingresar:</h3>
-            <span class="error"><?php echo (!$Login && $_POST) ? "Contraseña Incorrecta" : ""  ; ?> </span>
+
 
             <div class="mini_container">
               <label for="email" >Email:</label><br/>

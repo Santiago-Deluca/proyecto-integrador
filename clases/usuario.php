@@ -2,20 +2,19 @@
 
 class Usuario
 {
+  private $name;
   private $username;
   private $email;
-
   private $password;
   // private $repassword;
   private $avatar;
 
-  public function __construct($username, $email, $usuario, $password, $avatar)
+  public function __construct($name, $username, $email, $password, $avatar)
   {
+    $this->name= $name;
     $this->username= $username;
     $this->email = $email;
-    $this->usuario = $usuario;
     $this->password = $password;
-    // $this->repassword = $repassword;
     $this->avatar = $avatar;
   }
 
@@ -31,12 +30,20 @@ class Usuario
     $this->password = password_hash($this->password, PASSWORD_DEFAULT); // bcrypt es la encriptación PASSWORD_DEFAULT
   }
 
-  public function getUsername () {
-    return $this->nombre_completo;
+  public function getName () {
+    return $this->name;
   }
 
-  public function setUsername ($nombre) {
-    $this->nombre_completo = $nombre;
+  public function setName ($name) {
+    $this->name = $name;
+  }
+
+  public function getUsername () {
+    return $this->username;
+  }
+
+  public function setUsername ($username) {
+    $this->username = $username;
   }
 
   public function getEmail () {
