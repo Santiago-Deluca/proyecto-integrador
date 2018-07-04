@@ -17,10 +17,10 @@
      	    <span></span>
         </div>
         <nav class="navegacion-principal">
-          
+
           <img src="<?php echo getAvatar($_SESSION)?>" alt="avatar" width=60px height=60px  style=border-radius:50%>';
-          
-          <a href="" id="bienvenido">Bienvenido, <?php echo isset(($_SESSION['email'])) ? $_SESSION['email'] : " "; ?></a>          
+
+          <a href="" id="bienvenido">Bienvenido, <?php echo isset(($_SESSION['email'])) ? $_SESSION['email'] : " "; ?></a>
           <a href="home.php">Home</a>
           <a href="faq.php">Preguntas frecuentes</a>
           <a href="logout.php">Logout</a>

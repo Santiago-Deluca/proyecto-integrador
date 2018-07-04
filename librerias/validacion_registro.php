@@ -24,7 +24,7 @@ function validacion_registro($datos){
 }
 
 function validacion_avatar($avatar){
-  $errorAvatar=[];  
+  $errorAvatar=[];
   if (empty($avatar)) {
     $errorAvatar["avatar"]="Por favor ingrese su foto perfil";
   }
@@ -97,7 +97,7 @@ function validarUsuario($datos){
   }
   return $Login;
 }
-
+ // adaptar esta funcion en lugar de cargarfoto1 en db.php y hacerla con objetos
 function subirAvatar($avatar){
     $nombreViejo =$avatar["name"]; // Nombre original del archivo
     $extension = pathinfo($nombreViejo, PATHINFO_EXTENSION); // Extensión del archivo subido
@@ -146,8 +146,8 @@ function inicioSesion($datos) {
   if (isset($datos['recordar'])) {
 	  setcookie('email',$datos['email'],$vencimiento,'/');
   } else {
-    setcookie('email','',$vencimiento,'/');   
-  }   
+    setcookie('email','',$vencimiento,'/');
+  }
 	//definir el usuarios
 	$_SESSION['email']=$datos['email'];
 }

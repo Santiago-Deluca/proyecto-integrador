@@ -1,6 +1,6 @@
 <?php
   require_once "librerias/validacion_registro.php";
-
+   $Login = false;
   if ($_POST){
     $errores = validar_formulario($_POST);
     if (empty($errores)) {
@@ -29,7 +29,7 @@
     ?>
 
     <section class="cuerpo">
-      <form id="login" action="" method="post">      
+      <form id="login" action="" method="post">
         <div class="container">
           <div class="panel">
             <h3 class="text_login">Ingresar:</h3>
