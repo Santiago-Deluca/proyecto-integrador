@@ -6,15 +6,14 @@
 
   $json = file_get_contents("usuarios.json");
   $array = json_decode($json,true);
+  $array = $array["usuarios"];
 
-  foreach($array as $usuarios) {
-    foreach($usuarios as $usuario) {
-      if ($usuario['email'] == $email) {
-        $nuevoUsuario = new Usuario($usuario["username"], $usuario["email"], $usuario["password"], $usuario["avatar"]);
-	  	$dbSql->guardarUsuario($usuario);
-	  	$cantidad++;
-      }
-    }
+  for ($i=0; $i < count($array); $i++) {
+    $usuario = json_decode($array[$i],true);
+    $nuevoUsuario = new Usuario($usuario["name"],$usuario["username"], $usuario["email"], $usuario["password"], $usuario["avatar"]);
+    $dbSql->guardarUsuario($nuevoUsuario);
+	  $cantidad++;
   }
+  
   echo "Usuarios copiados: ".$cantidad;
 ?>

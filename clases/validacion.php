@@ -55,8 +55,8 @@ abstract class Validacion {
       $errores["password"]= "Por favor ingrese una contraseña";
     }
 
-    if (!self::comprobarLogin($datos['email'], $datos['password'], $db)) {
-        $errores["login"]="No corresponde el email del usuario con la contraseña ingresada";# code...
+    if ($datos["password"]!="" && !self::comprobarLogin($datos['email'], $datos['password'], $db)) {
+        $errores["password"]="No corresponde el email del usuario con la contraseña ingresada";# code...
     }
 
     return $errores;
@@ -66,7 +66,6 @@ abstract class Validacion {
   // Comprobamos que el usuario y la contraseña coincidan con un usuario en la base de datos y su contraseña
   public static function comprobarLogin($email, $password, $db){
       $viejoUser = $db->retornaUsuario($email);
-      var_dump($viejoUser);
       $bandera = 0;
       if($viejoUser !== false) {
         if($viejoUser->getEmail() == $email && password_verify($password, $viejoUser->getPassword()))

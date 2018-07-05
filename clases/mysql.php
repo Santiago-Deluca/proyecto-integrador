@@ -18,11 +18,17 @@ class Mysql extends DB {
     $sql = 'INSERT INTO usuarios (name,username, email, password, avatar) VALUES (:name,:username,:email, :password, :avatar)';
     $query = $this->conexion->prepare($sql);
 
-    $query->bindParam(":name", $usuario->getName());
-    $query->bindParam(":username", $usuario->getUsername());
-    $query->bindParam(":email", $usuario->getEmail());
-    $query->bindParam(":password", $usuario->getPassword());
-    $query->bindParam(":avatar", $usuario->getAvatar());
+    $myName = $usuario->getName();
+    $myUsername = $usuario->getUsername();
+    $myEmail = $usuario->getEmail();
+    $myPassword = $usuario->getPassword();
+    $myAvatar = $usuario->getAvatar();
+
+    $query->bindParam(":name", $myName);
+    $query->bindParam(":username", $myUsername);
+    $query->bindParam(":email", $myEmail);
+    $query->bindParam(":password", $myPassword);
+    $query->bindParam(":avatar", $myAvatar);
 
     $query->execute();
   }

@@ -1,18 +1,15 @@
 <?php
+  require_once "autoload.php";
+  require_once "helpers.php";
 
+  if ($_POST) {
+      $errores = Validacion::validarDatosLogin($_POST, $db);
+      if(empty($errores)){
+          $session->login($_POST["email"], $_POST["password"]);
+        header("Location:index.php");
+      }
 
-require_once "autoload.php";
-require_once "helpers.php";
-
-if ($_POST) {
-    $errores = Validacion::validarDatosLogin($_POST, $db);
-    var_dump($errores);
-    if(empty($errores)){
-        $session->login($_POST["email"], $_POST["password"]);
-      header("Location:index.php");
-    }
-
-}
+  }
 
 
   // require_once "librerias/validacion_registro.php";
